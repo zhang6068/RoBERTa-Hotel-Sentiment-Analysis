@@ -1,0 +1,9 @@
+torch_gpu>=12.4
+transformers>=4.46.3
+datasets
+evaluate
+fastapi
+uvicorn
+numpy
+pandas
+scikit-learn
