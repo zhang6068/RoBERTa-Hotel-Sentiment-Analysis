@@ -17,7 +17,12 @@ RoBERTa-Hotel-Sentiment-Analysis/
 └── README.md             # 项目说明文档
 ```
 > 注：训练生成的best_sentiment_model权重文件夹因体积过大，未上传至仓库，本地运行train.py自动生成
-
+## 数据集说明
+- 数据来源：酒店真实用户中文评论数据集
+- 标签规则：`0=负面评论，1=正面评论`
+- 数据集划分：训练集:验证集:测试集 = 7:1:2
+- 数据预处理：文本去特殊符号、截断补长至模型最大长度、RoBERTa分词编码
+  
 ## 模型指标
 测试集准确率Acc：91% | 加权F1：0.91，正负评论识别精准。
 
@@ -37,3 +42,9 @@ python train.py
 uvicorn app:app --host 127.0.0.1 --port 8000
 ```
 > 服务启动成功后，浏览器访问调试文档：`http://127.0.0.1:8000/docs`
+## 接口调用示例
+打开http://127.0.0.1:8000/docs， 找到/predict接口，点击 Try it out 输入评论即可返回结果。
+## 离线本地测试
+```bash
+python test.py
+```
